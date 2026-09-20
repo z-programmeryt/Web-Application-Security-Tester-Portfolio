@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Offline — M. Redoy Rowshon</title>
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: #040a18;
+      color: #e2e8f0;
+      font-family: system-ui, -apple-system, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+    .card {
+      max-width: 480px;
+      text-align: center;
+      padding: 2rem;
+      border: 1px solid #1e3a5f;
+      border-radius: 1rem;
+      background: #0d1b2a;
+    }
+    h1 { color: #60a5fa; margin-bottom: 0.5rem; }
+    p { color: #94a3b8; line-height: 1.6; }
+    button {
+      margin-top: 1rem;
+      padding: 0.6rem 1.5rem;
+      background: #3b82f6;
+      color: white;
+      border: none;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+    button:hover { background: #60a5fa; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>You're Offline</h1>
+    <p>This portfolio requires an internet connection. Please check your network and try again.</p>
+    <button onclick="window.location.reload()">Retry</button>
+  </div>
+</body>
+</html>
