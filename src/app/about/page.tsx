@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { MapPin, Mail, Shield, Terminal, Cpu, FolderGit2, ArrowRight, Sparkles } from "lucide-react";
+import { MapPin, Mail, Shield, Terminal, Cpu, FolderGit2, ArrowRight, Sparkles, Eye, FileText, Lightbulb } from "lucide-react";
 import PageShell from "@/components/PageShell";
 import PageHeader from "@/components/PageHeader";
 import Reveal from "@/components/Reveal";
 import SectionHeading from "@/components/SectionHeading";
 import Marquee from "@/components/Marquee";
 import SafeImage from "@/components/SafeImage";
+import ToolkitSection from "@/components/ToolkitSection";
 import { profile, socialLinks } from "@/data/profile";
 import { expertiseAreas } from "@/data/skills";
 import { timeline } from "@/data/timeline";
@@ -30,6 +31,29 @@ const quickFacts = [
   { icon: Mail, label: "Email", value: profile.email },
   { icon: Shield, label: "Role", value: profile.title },
   { icon: Cpu, label: "Primary OS", value: "Kali Linux / Linux" },
+];
+
+const principles = [
+  {
+    icon: Shield,
+    title: "Authorization is the only context",
+    desc: "No tool runs without a signed scope. If it isn't yours and you can't prove permission, it's not a target — it's simple.",
+  },
+  {
+    icon: Eye,
+    title: "Manual over automated",
+    desc: "Scanners find hints; humans find impact. Every automated signal is verified manually and validated for real exploitability.",
+  },
+  {
+    icon: FileText,
+    title: "Clarity over volume",
+    desc: "A 60-page scare-folder helps nobody. You get prioritized findings, business risk, and step-by-step fixes your team can act on.",
+  },
+  {
+    icon: Lightbulb,
+    title: "Found means fixed",
+    desc: "Finding a bug is the beginning, not the ending. I provide remediation guidance, retesting, and training so the fix sticks.",
+  },
 ];
 
 export default function AboutPage() {
@@ -126,6 +150,33 @@ export default function AboutPage() {
                       </li>
                     ))}
                   </ul>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Toolkit */}
+      <ToolkitSection />
+
+      {/* Principles */}
+      <section className="section-padding pt-2">
+        <div className="max-w-7xl mx-auto">
+          <SectionHeading
+            eyebrow="How I work"
+            title={<>Principles that <span className="text-gradient">don&apos;t bend</span></>}
+            subtitle="The rules every engagement follows — no exceptions, no negotiation."
+          />
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {principles.map((p, i) => (
+              <Reveal key={p.title} delay={i * 0.08}>
+                <div className="glass-card p-6 h-full group hover:-translate-y-1 transition-transform duration-300">
+                  <div className="p-3 rounded-xl bg-electric-500/10 border border-electric-500/15 inline-flex mb-4 group-hover:scale-110 transition-transform duration-300">
+                    <p.icon className="w-5 h-5 text-electric-400" />
+                  </div>
+                  <h3 className="font-bold text-text-primary mb-2">{p.title}</h3>
+                  <p className="text-sm text-text-muted leading-relaxed">{p.desc}</p>
                 </div>
               </Reveal>
             ))}

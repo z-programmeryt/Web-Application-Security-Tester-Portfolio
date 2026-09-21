@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import PageShell from "@/components/PageShell";
 import PageHeader from "@/components/PageHeader";
 import ProjectGallery from "@/components/ProjectGallery";
+import CtaSection from "@/components/CtaSection";
 
 const SITE = "https://redoyrowshon.vercel.app";
 
@@ -32,6 +33,7 @@ export default function ProjectsPage() {
         description="Open-source projects spanning penetration testing, OSINT, and security research — each one a practical exercise in understanding how systems work and where they break."
       />
       <ProjectGallery />
+      <CtaSection />
     </PageShell>
   );
 }

@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
-import { Mail, MapPin, Clock, MessageSquare, ArrowUpRight } from "lucide-react";
+import Link from "next/link";
+import { Mail, MapPin, Clock, MessageSquare, ArrowUpRight, CalendarCheck, FileSignature, BadgeCheck, ShieldCheck } from "lucide-react";
 import { Github, Linkedin } from "@/components/icons/BrandIcons";
 import PageShell from "@/components/PageShell";
 import PageHeader from "@/components/PageHeader";
 import Reveal from "@/components/Reveal";
 import { profile, socialLinks } from "@/data/profile";
+import { faqs } from "@/data/faq";
 
 const SITE = "https://redoyrowshon.vercel.app";
 
@@ -19,6 +21,21 @@ export const metadata: Metadata = {
     images: [{ url: "/og-image.png", width: 1200, height: 630 }],
   },
 };
+
+const prepChecklist = [
+  "A short description of the product or system",
+  "Target list (domains, IPs, repos) — if you have one",
+  "Timeline or deadline you're working toward",
+];
+
+const guarantees = [
+  { icon: CalendarCheck, label: "Free scoping call" },
+  { icon: FileSignature, label: "Written rules of engagement" },
+  { icon: BadgeCheck, label: "NDA on request" },
+  { icon: ShieldCheck, label: "Authorized testing only" },
+];
+
+const topFaqs = [faqs[2], faqs[4], faqs[6]];
 
 const contactCards = [
   {
@@ -132,6 +149,64 @@ export default function ContactPage() {
               </div>
             </div>
           </Reveal>
+
+          {/* Guarantees */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-border-subtle rounded-2xl border border-border-subtle overflow-hidden mt-12">
+            {guarantees.map((g) => (
+              <div key={g.label} className="bg-surface p-5 flex items-center gap-3">
+                <g.icon className="w-5 h-5 text-electric-400 shrink-0" />
+                <span className="text-sm text-text-secondary">{g.label}</span>
+              </div>
+            ))}
+          </div>
+
+          {/* Prep + quick FAQ */}
+          <div className="grid lg:grid-cols-2 gap-5 mt-12">
+            <Reveal y={24}>
+              <div className="glass-card gradient-border h-full p-7">
+                <span className="text-electric-400 font-mono text-xs tracking-[0.25em] uppercase">Before you write</span>
+                <h3 className="mt-2 text-xl font-bold text-text-primary mb-5">Make the first message count</h3>
+                <p className="text-sm text-text-secondary leading-relaxed mb-6">
+                  You don&apos;t need a technical document — a few lines about your project and what you want to
+                  protect is enough to start. These help most:
+                </p>
+                <ul className="space-y-3.5">
+                  {prepChecklist.map((item, i) => (
+                    <li key={item} className="flex items-start gap-3 text-sm text-text-secondary">
+                      <span className="mt-0.5 flex h-6 w-6 items-center justify-center rounded-lg bg-electric-500/10 text-electric-300 font-mono text-[11px] font-bold shrink-0">
+                        {i + 1}
+                      </span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </Reveal>
+
+            <Reveal delay={0.1} y={24}>
+              <div className="glass-card gradient-border h-full p-7 flex flex-col">
+                <span className="text-electric-400 font-mono text-xs tracking-[0.25em] uppercase">Quick answers</span>
+                <h3 className="mt-2 text-xl font-bold text-text-primary mb-5">What clients ask first</h3>
+                <div className="space-y-5 flex-1">
+                  {topFaqs.map((f) => (
+                    <div key={f.question}>
+                      <p className="text-sm font-semibold text-text-primary mb-1.5 flex items-center gap-2">
+                        <span className="h-1.5 w-1.5 rounded-full bg-electric-400 shrink-0" />
+                        {f.question}
+                      </p>
+                      <p className="text-[13px] text-text-muted leading-relaxed pl-3.5">{f.answer}</p>
+                    </div>
+                  ))}
+                </div>
+                <Link
+                  href="/services#faq"
+                  className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-electric-400 hover:text-electric-300 transition-colors"
+                >
+                  See the full FAQ on the services page <ArrowUpRight className="w-4 h-4" />
+                </Link>
+              </div>
+            </Reveal>
+          </div>
         </div>
       </section>
     </PageShell>
