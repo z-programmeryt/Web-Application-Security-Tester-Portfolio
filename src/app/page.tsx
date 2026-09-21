@@ -50,6 +50,24 @@ const structuredData = {
       publisher: { "@id": "https://redoyrowshon.vercel.app/#person" },
     },
     { "@type": "ProfilePage", "@id": "https://redoyrowshon.vercel.app/#profilepage", mainEntity: { "@id": "https://redoyrowshon.vercel.app/#person" }, url: "https://redoyrowshon.vercel.app" },
+    {
+      "@type": "Organization",
+      "@id": "https://redoyrowshon.vercel.app/#organization",
+      name: profile.displayName,
+      url: "https://redoyrowshon.vercel.app",
+      logo: "https://redoyrowshon.vercel.app/icon-192.png",
+      description: profile.tagline,
+      sameAs: ["https://github.com/redoyrowshon-dotcom", "https://www.linkedin.com/in/m-redoy-rowshon-2a0406424/"],
+      contactPoint: { "@type": "ContactPoint", contactType: "sales", email: profile.email },
+    },
+    {
+      "@type": "Service",
+      "@id": "https://redoyrowshon.vercel.app/#service",
+      serviceType: "Penetration Testing",
+      provider: { "@id": "https://redoyrowshon.vercel.app/#organization" },
+      areaServed: "Worldwide",
+      description: profile.tagline,
+    },
   ],
 };
 

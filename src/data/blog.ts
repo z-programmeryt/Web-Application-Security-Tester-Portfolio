@@ -1,180 +1,115 @@
-export type BlogBlock =
-  | { type: "paragraph"; text: string }
-  | { type: "heading"; text: string }
-  | { type: "list"; items: string[] }
-  | { type: "code"; label: string; code: string }
-  | { type: "callout"; text: string };
-
 export type BlogPost = {
   slug: string;
   title: string;
   description: string;
+  longDescription?: string;
   date: string;
   readingTime: string;
   tags: string[];
-  featured?: boolean;
-  blocks: BlogBlock[];
+  featured: boolean;
 };
 
 export const blogPosts: BlogPost[] = [
   {
     slug: "wifi-pentesting-from-scratch",
-    title: "WiFi Penetration Testing, From Scratch",
+    title: "WiFi Penetration Testing From Scratch",
     description:
-      "A practical walkthrough of the authorized wireless assessment workflow — from adapter setup and handshake capture to offline cracking — inspired by building WiFi-RainbowBuffer.",
+      "Step-by-step notes on setting up an authorized WiFi assessment — client detection, handshake capture, and cracking with aircrack-ng and hashcat.",
+    longDescription:
+      "This post walks through a full, authorized WiFi penetration testing engagement: selecting the right adapter, putting it into monitor mode, detecting connected clients, performing a deauthentication to capture the WPA2 four-way handshake, and cracking it offline with aircrack-ng or hashcat. It also covers PMKID capture as a no-client alternative and shares practical tips on filtering noise and organizing output.",
     date: "September 2026",
-    readingTime: "8 min",
-    tags: ["WiFi", "Penetration Testing", "Kali Linux"],
+    readingTime: "12 min read",
+    tags: ["WiFi", "Penetration Testing", "aircrack-ng", "hashcat", "Practical"],
     featured: true,
-    blocks: [
-      {
-        type: "paragraph",
-        text: "Wireless networks are a favorite entry point in many assessments — invisible, always-on, and frequently misconfigured. This guide covers the honest, lab-based workflow of a wireless security check, always against equipment you own or are explicitly authorized to test.",
-      },
-      { type: "heading", text: "What you actually need" },
-      {
-        type: "list",
-        items: [
-          "A wireless adapter with monitor mode support",
-          "Kali Linux (or any Linux distro with the aircrack-ng stack)",
-          "A lab router you own — never a third party's network",
-          "Patience. Cracking is a statistics game, not magic.",
-        ],
-      },
-      { type: "heading", text: "The workflow" },
-      {
-        type: "paragraph",
-        text: "The assessment boils down to a few steps: put the adapter in monitor mode, discover nearby access points, capture a handshake (or PMKID), and take the hash offline for cracking. Automation wires these steps together so a tester can focus on analysis instead of typing the same commands repeatedly.",
-      },
-      {
-        type: "code",
-        label: "Monitor mode on a wireless adapter",
-        code: "sudo ip link set wlan0 down\nsudo iw dev wlan0 set type monitor\nsudo ip link set wlan0 up\nsudo airmon-ng check kill",
-      },
-      { type: "heading", text: "Defending what you learned" },
-      {
-        type: "paragraph",
-        text: "Everything learned here flips into the defensive playbook: use WPA2/WPA3 with a strong passphrase, disable WPS where possible, and segment IoT devices. It is the same checklist I applied when building WiFi-RainbowBuffer.",
-      },
-      {
-        type: "callout",
-        text: "This article is for education and authorized testing only. Running these techniques on networks you do not own is illegal in most jurisdictions.",
-      },
-    ],
   },
   {
     slug: "owasp-top-10-practical-notes",
-    title: "OWASP Top 10: Practical Testing Notes",
+    title: "OWASP Top 10 — Practical Notes",
     description:
-      "Hands-on notes on testing the most common web application risks — injection, broken authentication, XSS, and more — with a Burp Suite workflow.",
+      "Concrete observations on injection, XSS, broken authentication, and SSRF — with the kind of real findings that actually show up in audits.",
+    longDescription:
+      "A practical, findings-first look at the OWASP Top 10: how each weakness typically appears, what it looks like during testing, and what a valid proof-of-concept requires. Includes examples of injection, XSS, broken authentication, insecure deserialization, SSRF, and security misconfiguration — drawn from real engagements where the scan report alone wasn't enough to prove risk.",
     date: "August 2026",
-    readingTime: "6 min",
-    tags: ["OWASP", "Web Security", "Burp Suite"],
-    blocks: [
-      {
-        type: "paragraph",
-        text: "The OWASP Top 10 is not the whole story of web security, but it is an excellent checklist for where to look first on any web application assessment. These are the notes I use when walking through a test.",
-      },
-      { type: "heading", text: "Broken Access Control" },
-      {
-        type: "paragraph",
-        text: "The top item on the list — and the one most often found. Test every authenticated resource as an unauthenticated user, and every role against the other roles. If an ID is in the URL, try changing it.",
-      },
-      { type: "heading", text: "Injection" },
-      {
-        type: "list",
-        items: [
-          "Probe every input parameter, header, and cookie",
-          "Look for error-based and boolean-based behaviors",
-          "Check stored data for second-order injection",
-          "Always confirm impact with a safe, reversible payload",
-        ],
-      },
-      { type: "heading", text: "A minimal Burp workflow" },
-      {
-        type: "code",
-        label: "Mental checklist",
-        code: "1. Map endpoints (site map + JS analysis)\n2. Check authz on every endpoint\n3. Intercept and fuzz parameters\n4. Validate each finding manually\n5. Write PoC + business impact",
-      },
-      {
-        type: "callout",
-        text: "Scanner output is a starting point, not a verdict. Every finding should be validated by hand before it reaches a report.",
-      },
-    ],
+    readingTime: "10 min read",
+    tags: ["OWASP", "Web Security", "Findings", "Practical"],
+    featured: true,
   },
   {
     slug: "osint-for-reconnaissance",
-    title: "OSINT for Reconnaissance: Gathering Smarter",
+    title: "OSINT for Reconnaissance",
     description:
-      "How open-source intelligence fits into the reconnaissance phase of an engagement — sources, workflow, and knowing what is legal to collect.",
+      "How open-source signals — DNS, certificates, GitHub, and public registries — build a clean attack surface map before any scanning starts.",
+    longDescription:
+      "Before any tool touches a target, the best pentesters already know what's visible. This post shares the OSINT workflow I use to build an attack surface map: DNS and WHOIS enumeration, certificate transparency logs, GitHub dorking, and public registry checks. The result is a prioritized list of entry points and a documented scope — so every scan that follows has direction.",
     date: "July 2026",
-    readingTime: "5 min",
-    tags: ["OSINT", "Reconnaissance", "Research"],
-    blocks: [
-      {
-        type: "paragraph",
-        text: "Reconnaissance is where engagements are won. Open-source intelligence (OSINT) — collecting from public sources — gives you a map of the target before a single packet is sent.",
-      },
-      { type: "heading", text: "Where to look first" },
-      {
-        type: "list",
-        items: [
-          "Company and personal websites, including sitemaps and robots.txt",
-          "Public code repositories and commit history",
-          "DNS and certificate transparency logs",
-          "Public datasets — from satellite signals to infrastructure leaks",
-        ],
-      },
-      { type: "heading", text: "Staying on the right side" },
-      {
-        type: "paragraph",
-        text: "There is a line between public information and intrusive targeting. OSINT for legitimate engagements uses sources available to anyone, respects privacy expectations, and never involves phishing or social engineering of unrelated individuals.",
-      },
-      {
-        type: "paragraph",
-        text: "The same mindset carried into Shadowbroker, where diverse public signals — aircraft, satellite, seismic activity — are aggregated into a single intelligence surface.",
-      },
-    ],
+    readingTime: "8 min read",
+    tags: ["OSINT", "Reconnaissance", "Methodology", "Practical"],
+    featured: false,
   },
   {
     slug: "python-security-tooling",
-    title: "Building Security Tooling with Python",
+    title: "Building Security Tools With Python",
     description:
-      "Lessons from shipping real security automation — from argument parsing to organized output — and why the boring parts matter most.",
+      "Practical patterns for writing security automation in Python — from script structure and argument parsing to output and CI-friendly design.",
+    longDescription:
+      "Python is the language most security tooling is written in, and the same patterns apply whether you're writing a scanner or a wordlist generator. This post covers the practical lessons: clean argument parsing, logging instead of prints, structured JSON output, reusable modules, and designing scripts that fit naturally into a CI pipeline. Includes small, documented examples you can adapt.",
     date: "June 2026",
-    readingTime: "7 min",
-    tags: ["Python", "Tooling", "Automation"],
-    blocks: [
-      {
-        type: "paragraph",
-        text: "Eventually every security tester starts writing their own tools. Python is the fastest path from problem to working script, but good security tooling is about the unglamorous details.",
-      },
-      { type: "heading", text: "Design for the operator" },
-      {
-        type: "list",
-        items: [
-          "Clear CLI flags with sensible defaults",
-          "Pre-flight environment checks (adapters, permissions, tools)",
-          "Organized, timestamped output directories",
-          "Graceful failure messages instead of tracebacks",
-        ],
-      },
-      { type: "heading", text: "The boring parts are the product" },
-      {
-        type: "paragraph",
-        text: "WiFi-RainbowBuffer taught me that the value was not the attack itself but the orchestration: detecting the right adapter, generating wordlists, structuring results. Operators should not have to read your source to use your tool safely.",
-      },
-      {
-        type: "code",
-        label: "Architecture sketch",
-        code: "CLI parser  ->  environment checks  ->  phase runner\n    (detect tools/adapters)        (capture / crack / report)\n\nEach phase writes to ./output/<timestamp>/ and\nlogs to stdout with a consistent prefix.",
-      },
-    ],
+    readingTime: "9 min read",
+    tags: ["Python", "Automation", "Tooling", "Practice"],
+    featured: false,
   },
-] as const;
+  {
+    slug: "api-security-checklist",
+    title: "API Security Checklist",
+    description:
+      "The checks I run on every API assessment — authentication, authorization, input validation, rate limiting, and common business-logic flaws.",
+    longDescription:
+      "APIs are the backbone of modern applications and a favorite surface for attackers. This checklist covers the checks I run on every API assessment: broken object-level authorization, excessive data exposure, broken authentication, mass assignment, security misconfiguration, and rate-limiting bypasses. Each item includes a short test case so you can reproduce findings quickly.",
+    date: "May 2026",
+    readingTime: "7 min read",
+    tags: ["API", "Security", "Checklist", "Practical"],
+    featured: false,
+  },
+  {
+    slug: "linux-terminal-for-security",
+    title: "The Linux Terminal for Security Work",
+    description:
+      "Essential commands, workflows, and tips for moving efficiently through Linux during assessments — the daily driver toolkit.",
+    longDescription:
+      "The terminal is where every assessment starts. This post collects the essential commands and workflows I reach for daily: file and process inspection, network analysis with ss and ip, service enumeration, log analysis, and quick scripting tricks that turn a tedious task into a one-liner. Practical, command-first, and focused on what actually speeds up real work.",
+    date: "April 2026",
+    readingTime: "8 min read",
+    tags: ["Linux", "Terminal", "Workflow", "Practical"],
+    featured: false,
+  },
+  {
+    slug: "incident-response-basics",
+    title: "Incident Response Basics",
+    description:
+      "How to triage, reconstruct timelines, and document findings when something goes wrong — a practical framework for SOC work.",
+    longDescription:
+      "When an alert fires, the first hours matter. This post covers the basics of incident response: triage and scope, timeline reconstruction from logs and network traces, containment steps, and how to write a post-incident report that actually helps the team harden their defenses. Drawn from research and practical forensics workflows.",
+    date: "March 2026",
+    readingTime: "10 min read",
+    tags: ["Incident Response", "Forensics", "SOC", "Practical"],
+    featured: false,
+  },
+  {
+    slug: "getting-started-with-kali",
+    title: "Getting Started With Kali Linux",
+    description:
+      "A no-noise introduction to Kali Linux — the desktop, the tools, and the habits that make security work repeatable and well-documented.",
+    longDescription:
+      "Kali Linux is the daily driver for many security professionals, and getting comfortable with it early makes every assessment smoother. This post covers the essentials: setup, desktop and terminal workflows, the core toolset, documentation habits, and how to keep a clean, reproducible environment. Practical and written for someone stepping into security work.",
+    date: "February 2026",
+    readingTime: "6 min read",
+    tags: ["Kali Linux", "Getting Started", "Practical", "Documentation"],
+    featured: false,
+  },
+];
 
-export function getPostBySlug(slug: string): BlogPost | undefined {
-  return blogPosts.find((post) => post.slug === slug);
+export const featuredPost = blogPosts.find((p) => p.featured) ?? blogPosts[0];
+
+export function getPostBySlug(slug: string) {
+  return blogPosts.find((p) => p.slug === slug);
 }
-
-export const featuredPost = blogPosts.find((post) => post.featured) ?? blogPosts[0];

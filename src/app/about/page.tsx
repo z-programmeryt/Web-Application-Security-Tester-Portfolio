@@ -150,10 +150,46 @@ export default function AboutPage() {
                       </li>
                     ))}
                   </ul>
+</div>
+             </Reveal>
+           ))}
+         </div>
+       </div>
+       </section>
+
+      {/* Why security matters */}
+      <section className="section-padding pt-2">
+        <div className="max-w-7xl mx-auto">
+          <Reveal y={24}>
+            <div className="glass-card gradient-border p-8 sm:p-12 relative overflow-hidden">
+              <div className="absolute -top-24 -right-24 w-72 h-72 rounded-full bg-electric-500/10 blur-3xl pointer-events-none animate-aurora" aria-hidden />
+              <div className="relative flex flex-col sm:flex-row items-start sm:items-center gap-8">
+                <div>
+                  <p className="font-mono text-xs tracking-[0.25em] uppercase text-electric-400 mb-3">Security is a practice</p>
+                  <h2 className="text-2xl sm:text-4xl font-bold leading-tight mb-4">
+                    Every application ships with risk. The question is <span className="text-gradient">how prepared you are</span>.
+                  </h2>
+                  <p className="text-text-secondary text-base sm:text-lg leading-relaxed max-w-xl">
+                    A single unresolved vulnerability can cost a business its customers, its reputation, and its data. I help you find it early — with clear evidence, honest reporting, and a straight path to remediation.
+                  </p>
                 </div>
-              </Reveal>
-            ))}
-          </div>
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-6 shrink-0">
+                  <div className="glass-card !rounded-xl p-5 text-center">
+                    <p className="text-3xl font-bold text-gradient">8+</p>
+                    <p className="text-xs text-text-muted mt-1">Projects built</p>
+                  </div>
+                  <div className="glass-card !rounded-xl p-5 text-center">
+                    <p className="text-3xl font-bold text-gradient">4</p>
+                    <p className="text-xs text-text-muted mt-1">Security services</p>
+                  </div>
+                  <div className="glass-card !rounded-xl p-5 text-center sm:col-span-2">
+                    <p className="text-3xl font-bold text-gradient">6+</p>
+                    <p className="text-xs text-text-muted mt-1">Years of research</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </Reveal>
         </div>
       </section>
 

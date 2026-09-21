@@ -6,6 +6,24 @@ import Marquee from "@/components/Marquee";
 import { reviews, featuredReview } from "@/data/reviews";
 import { Star, Quote, BadgeCheck } from "lucide-react";
 
+const reviewSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "Client Reviews",
+  description: "Feedback from real security engagements.",
+  itemListElement: reviews.map((r, i) => ({
+    "@type": "ListItem",
+    position: i + 1,
+    item: {
+      "@type": "Review",
+      reviewRating: { "@type": "Rating", ratingValue: r.rating, bestRating: 5 },
+      author: { "@type": "Person", name: r.name },
+      reviewBody: r.quote,
+      itemReviewed: { "@type": "Service", name: r.service },
+    },
+  })),
+};
+
 function Stars({ count }: { count: number }) {
   return (
     <div className="flex gap-0.5" aria-label={`${count} out of 5 stars`}>
@@ -22,8 +40,9 @@ const quoteStrip = reviews.map(
 
 export default function ReviewsSection() {
   return (
-    <section id="reviews" className="section-padding relative overflow-hidden">
-      <div className="absolute -top-32 -left-32 w-96 h-96 rounded-full bg-electric-500/6 blur-3xl pointer-events-none" aria-hidden />
+      <section id="reviews" className="section-padding relative overflow-hidden">
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewSchema) }} />
+        <div className="absolute -top-32 -left-32 w-96 h-96 rounded-full bg-electric-500/6 blur-3xl pointer-events-none" aria-hidden />
       <div className="max-w-7xl mx-auto relative">
         <SectionHeading
           eyebrow="Client Reviews"

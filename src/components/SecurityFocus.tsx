@@ -5,12 +5,12 @@ import { useSpotlight } from "@/hooks/useSpotlight";
 import { Target, Bug, Wifi, Globe, Key, Network } from "lucide-react";
 
 const focusAreas = [
-  { icon: Target, title: "Penetration Testing", desc: "Methodical authorized security assessments with structured methodology.", accent: "#ef4444", bg: "bg-red-500/8" },
-  { icon: Bug, title: "Vulnerability Research", desc: "Identifying security weaknesses in applications and systems.", accent: "#f59e0b", bg: "bg-amber-500/8" },
-  { icon: Wifi, title: "WiFi Security", desc: "Wireless network assessment and WPA/WPA2 protocol analysis.", accent: "#22c55e", bg: "bg-emerald-500/8" },
-  { icon: Globe, title: "Web App Security", desc: "HTTP analysis, injection testing, and OWASP methodology.", accent: "#3b82f6", bg: "bg-blue-500/8" },
-  { icon: Key, title: "OSINT & Recon", desc: "Open-source intelligence gathering and attack surface mapping.", accent: "#a855f7", bg: "bg-purple-500/8" },
-  { icon: Network, title: "Security Automation", desc: "Python and C tools to automate security testing workflows.", accent: "#22d3ee", bg: "bg-cyan-500/8" },
+  { icon: Target, title: "Penetration Testing", desc: "Structured, authorized penetration tests across web, network, and wireless surfaces — methodical from scoping through clean reporting.", accent: "#ef4444", bg: "bg-red-500/8" },
+  { icon: Bug, title: "Vulnerability Research", desc: "Identifying security weaknesses and validating their real-world impact — not just scan dumps, but proofs an attacker could chain.", accent: "#f59e0b", bg: "bg-amber-500/8" },
+  { icon: Wifi, title: "WiFi Security", desc: "Wireless network assessment including WPA/WPA2 analysis, rogue access-point detection, and WPS configuration testing.", accent: "#22c55e", bg: "bg-emerald-500/8" },
+  { icon: Globe, title: "Web App Security", desc: "HTTP analysis, injection testing, and full OWASP Top 10 coverage applied to modern applications and APIs.", accent: "#3b82f6", bg: "bg-blue-500/8" },
+  { icon: Key, title: "OSINT & Recon", desc: "Open-source intelligence gathering and attack surface mapping — DNS, certificates, GitHub, and public registries.", accent: "#a855f7", bg: "bg-purple-500/8" },
+  { icon: Network, title: "Security Automation", desc: "Python and C tools that automate repeatable security work — scanners, wordlists, and CI-friendly utilities.", accent: "#22d3ee", bg: "bg-cyan-500/8" },
 ];
 
 function FocusCard({ area, index, inView }: { area: typeof focusAreas[0]; index: number; inView: boolean }) {

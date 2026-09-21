@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ArrowRight, Calendar, Clock, AlertTriangle, Code2 } from "lucide-react";
+import { ArrowLeft, ArrowRight, Calendar, Clock } from "lucide-react";
 import PageShell from "@/components/PageShell";
 import Reveal from "@/components/Reveal";
-import { blogPosts, getPostBySlug, type BlogBlock } from "@/data/blog";
+import { blogPosts, getPostBySlug } from "@/data/blog";
 
 const SITE = "https://redoyrowshon.vercel.app";
 
@@ -30,47 +30,6 @@ export function generateMetadata({ params }: { params: Promise<{ slug: string }>
   });
 }
 
-function Block({ block }: { block: BlogBlock }) {
-  switch (block.type) {
-    case "heading":
-      return <h2 className="text-xl sm:text-2xl font-bold text-text-primary mt-10 mb-4">{block.text}</h2>;
-    case "paragraph":
-      return <p className="text-text-secondary leading-relaxed mb-4">{block.text}</p>;
-    case "list":
-      return (
-        <ul className="space-y-2 mb-4">
-          {block.items.map((item) => (
-            <li key={item} className="flex items-start gap-2 text-text-secondary">
-              <span className="text-electric-400 mt-0.5">▹</span>
-              {item}
-            </li>
-          ))}
-        </ul>
-      );
-    case "code":
-      return (
-        <div className="my-6 glass-card !rounded-xl overflow-hidden">
-          <div className="flex items-center gap-2 px-4 py-2.5 border-b border-border-subtle bg-navy-900/50">
-            <Code2 className="w-4 h-4 text-electric-400" />
-            <span className="text-xs font-mono text-text-muted">{block.label}</span>
-          </div>
-          <pre className="p-4 overflow-x-auto text-sm font-mono leading-relaxed text-text-secondary">
-            <code>{block.code}</code>
-          </pre>
-        </div>
-      );
-    case "callout":
-      return (
-        <div className="my-6 flex items-start gap-3 glass-card !rounded-xl p-4 border-amber-500/15">
-          <AlertTriangle className="w-5 h-5 text-amber-400 flex-shrink-0 mt-0.5" />
-          <p className="text-sm text-text-secondary leading-relaxed">{block.text}</p>
-        </div>
-      );
-    default:
-      return null;
-  }
-}
-
 export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const post = getPostBySlug(slug);
@@ -79,6 +38,34 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   const index = blogPosts.findIndex((p) => p.slug === slug);
   const next = blogPosts[index + 1];
   const prev = blogPosts[index - 1];
+
+  const sections = [
+    { kind: "heading" as const, text: post.title },
+    { kind: "paragraph" as const, text: post.description },
+    ...(post.longDescription ? [{ kind: "heading" as const, text: "What you will learn" }, { kind: "paragraph" as const, text: post.longDescription }] : []),
+    { kind: "list" as const, text: "", items: post.tags },
+  ];
+
+  function Block({ block }: { block: { kind: string; text: string; items?: string[] } }) {
+    switch (block.kind) {
+      case "heading":
+        return <h2 className="text-xl sm:text-2xl font-bold text-text-primary mt-10 mb-4">{block.text}</h2>;
+      case "paragraph":
+        return <p className="text-text-secondary leading-relaxed mb-4">{block.text}</p>;
+      case "list":
+        return (
+          <ul className="space-y-2 mb-4">
+            {(block.items ?? []).map((item) => (
+              <li key={item} className="flex items-start gap-2 text-text-secondary">
+                <span className="text-electric-400 mt-0.5">▹</span>{item}
+              </li>
+            ))}
+          </ul>
+        );
+      default:
+        return null;
+    }
+  }
 
   return (
     <PageShell>
@@ -107,7 +94,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           </Reveal>
 
           <Reveal y={24}>
-            {post.blocks.map((block, i) => (
+            {sections.map((block, i) => (
               <Block key={i} block={block} />
             ))}
           </Reveal>

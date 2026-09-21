@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X } from "lucide-react";
+import { Menu, X, MessageCircle } from "lucide-react";
 import { Github, Linkedin } from "@/components/icons/BrandIcons";
 import { profile } from "@/data/profile";
 import { siteNavigation } from "@/data/navigation";
@@ -41,7 +41,9 @@ export default function Header() {
     <>
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          scrolled ? "bg-navy-950/80 backdrop-blur-2xl shadow-lg shadow-black/5" : "bg-transparent"
+          scrolled
+            ? "bg-bg-elevated/90 backdrop-blur-2xl shadow-lg shadow-black/5"
+            : "bg-bg-elevated/95"
         }`}
         role="banner"
       >
@@ -56,7 +58,7 @@ export default function Header() {
               <span className="text-electric-400">.</span>
             </Link>
 
-            {/* Desktop Nav — pill container */}
+            {/* Desktop Nav */}
             <nav className="hidden md:flex items-center gap-0.5 glass-card !rounded-full !border-transparent px-1 py-1" aria-label="Main navigation">
               {siteNavigation.map((item) => {
                 const isActive = activeId(item);
@@ -88,6 +90,15 @@ export default function Header() {
                   <Icon className="w-[18px] h-[18px]" />
                 </a>
               ))}
+              <a
+                href="https://wa.me/8801991642605"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="magnetic-btn ml-1 inline-flex items-center gap-1.5 px-3 py-2 text-sm font-medium rounded-lg border border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/10 transition-all duration-300"
+                aria-label="Chat on WhatsApp"
+              >
+                <MessageCircle className="w-[18px] h-[18px]" /> WhatsApp
+              </a>
               <Link href="/contact" className="magnetic-btn ml-1 px-5 py-2.5 text-sm font-semibold bg-gradient-to-r from-electric-500 to-electric-400 text-white rounded-xl shadow-lg shadow-electric-500/20 hover:shadow-electric-500/35 hover:scale-105 transition-all duration-300">
                 <span className="relative z-10">Hire Me</span>
               </Link>
@@ -106,7 +117,7 @@ export default function Header() {
 
       {/* Mobile Menu */}
       {mobileOpen && (
-        <div className="fixed inset-0 z-40 bg-navy-950/98 backdrop-blur-2xl md:hidden" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+        <div className="fixed inset-0 z-40 bg-bg-elevated/98 backdrop-blur-2xl md:hidden" role="dialog" aria-modal="true" aria-label="Mobile navigation">
           <div className="flex flex-col items-center justify-center h-full gap-5 px-6">
             <div className="w-14 h-14 rounded-2xl overflow-hidden border border-electric-500/20 mb-3 animate-scale-in shadow-lg shadow-electric-500/10">
               <SafeImage src="/logo.png" fallbackSrc="/favicon.svg" alt="Logo" className="w-full h-full object-cover" />
@@ -122,6 +133,7 @@ export default function Header() {
             <div className="flex items-center gap-3 mt-6 animate-fade-in" style={{ animationDelay: "500ms" }}>
               <a href="https://github.com/redoyrowshon-dotcom" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="p-3 text-text-muted hover:text-text-primary glass-card !rounded-xl"><Github className="w-5 h-5" /></a>
               <a href="https://www.linkedin.com/in/m-redoy-rowshon-2a0406424/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="p-3 text-text-muted hover:text-text-primary glass-card !rounded-xl"><Linkedin className="w-5 h-5" /></a>
+              <a href="https://wa.me/8801991642605" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="p-3 text-emerald-400 hover:text-emerald-300 glass-card !rounded-xl"><MessageCircle className="w-5 h-5" /></a>
             </div>
           </div>
         </div>
