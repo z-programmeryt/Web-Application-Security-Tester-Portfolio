@@ -1,19 +1,25 @@
 "use client";
 
+import dynamic from "next/dynamic";
+import Link from "next/link";
 import { Shield, Terminal, MapPin, ArrowDown } from "lucide-react";
 import { Github, Linkedin } from "@/components/icons/BrandIcons";
 import { profile } from "@/data/profile";
 import TypingText from "@/components/TypingText";
 import SafeImage from "@/components/SafeImage";
 
+const Hero3D = dynamic(() => import("@/components/three/Hero3D"), { ssr: false });
+
 export default function Hero() {
   return (
     <section id="home" className="relative min-h-screen flex items-center section-padding pt-28 md:pt-36 overflow-hidden">
+      {/* 3D scene */}
+      <Hero3D />
       {/* Gradient mesh background */}
-      <div className="absolute top-20 -left-40 w-[500px] h-[500px] rounded-full blur-[120px] opacity-30 dark:opacity-20" style={{ background: "radial-gradient(circle, var(--color-electric-500), transparent 70%)" }} aria-hidden="true" />
-      <div className="absolute bottom-20 -right-40 w-[400px] h-[400px] rounded-full blur-[100px] opacity-20" style={{ background: "radial-gradient(circle, var(--color-cyan-accent), transparent 70%)" }} aria-hidden="true" />
+      <div className="absolute top-20 -left-40 w-[500px] h-[500px] rounded-full blur-[120px] opacity-30 dark:opacity-20 animate-aurora" style={{ background: "radial-gradient(circle, var(--color-electric-500), transparent 70%)" }} aria-hidden="true" />
+      <div className="absolute bottom-20 -right-40 w-[400px] h-[400px] rounded-full blur-[100px] opacity-20 animate-aurora" style={{ background: "radial-gradient(circle, var(--color-cyan-accent), transparent 70%)", animationDelay: "3s" }} aria-hidden="true" />
 
-      <div className="max-w-7xl mx-auto w-full relative">
+      <div className="max-w-7xl mx-auto w-full relative z-10">
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
           {/* Text — spans 7 cols */}
           <div className="lg:col-span-7 order-2 lg:order-1">
@@ -51,19 +57,19 @@ export default function Hero() {
 
             {/* CTAs */}
             <div className="flex flex-wrap items-center gap-4 animate-slide-up" style={{ animationDelay: "320ms" }}>
-              <a
-                href="#projects"
+              <Link
+                href="/projects"
                 className="magnetic-btn group inline-flex items-center gap-2.5 px-7 py-3.5 bg-gradient-to-r from-electric-500 to-electric-400 text-white font-semibold rounded-xl shadow-lg shadow-electric-500/20 hover:shadow-electric-500/35 hover:scale-[1.03] transition-all duration-300"
               >
-                <Terminal className="w-4 h-4 group-hover:rotate-12 transition-transform" />
+                <Terminal className="w-4 h-4 group-hover:rotate-12 transition-transform relative z-10" />
                 <span className="relative z-10">View Projects</span>
-              </a>
-              <a
-                href="#contact"
+              </Link>
+              <Link
+                href="/contact"
                 className="magnetic-btn inline-flex items-center gap-2 px-7 py-3.5 border border-border-medium hover:border-electric-500/40 text-text-primary font-semibold rounded-xl transition-all duration-300 hover:scale-[1.03] hover:bg-electric-500/5"
               >
-                Get in Touch
-              </a>
+                <span className="relative z-10">Get in Touch</span>
+              </Link>
               <div className="flex items-center gap-2 ml-1">
                 {[
                   { href: "https://github.com/redoyrowshon-dotcom", Icon: Github, label: "GitHub" },

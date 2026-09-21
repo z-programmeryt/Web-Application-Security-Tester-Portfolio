@@ -1,6 +1,8 @@
 import Header from "@/components/Header";
 import ScrollProgress from "@/components/ScrollProgress";
 import Hero from "@/components/Hero";
+import StatsBand from "@/components/StatsBand";
+import Marquee from "@/components/Marquee";
 import About from "@/components/About";
 import Expertise from "@/components/Expertise";
 import Skills from "@/components/Skills";
@@ -59,6 +61,13 @@ export default function Home() {
       <BackToTop />
       <main>
         <Hero />
+        <div className="relative z-10">
+          <StatsBand />
+        </div>
+        <Marquee
+          items={["WiFi-RainbowBuffer", "Penetration Testing", "Web App Security", "OSINT", "Python", "C", "Kali Linux", "Burp Suite", "Ethical Hacking", "Security Research"]}
+          className="py-5 border-y border-border-subtle mb-4"
+        />
         <Divider />
         <About />
         <Divider />

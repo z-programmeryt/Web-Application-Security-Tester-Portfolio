@@ -3,6 +3,8 @@ import "./globals.css";
 import { profile } from "@/data/profile";
 import NetworkCanvas from "@/components/NetworkCanvas";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import Preloader from "@/components/Preloader";
+import CustomCursor from "@/components/CustomCursor";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://redoyrowshon.vercel.app"),
@@ -56,6 +58,8 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       </head>
       <body className="bg-navy-950 text-text-primary antialiased noise-overlay">
         <ThemeProvider>
+          <Preloader />
+          <CustomCursor />
           <NetworkCanvas />
           <div className="relative min-h-screen z-[2]">
             <div className="fixed top-0 left-1/2 -translate-x-1/2 w-[900px] h-[600px] rounded-full opacity-20 dark:opacity-15 blur-3xl pointer-events-none z-0" style={{ background: "radial-gradient(ellipse, var(--color-electric-500), transparent 70%)" }} aria-hidden="true" />
