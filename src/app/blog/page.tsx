@@ -4,6 +4,7 @@ import { ArrowRight, Calendar, Clock } from "lucide-react";
 import PageShell from "@/components/PageShell";
 import PageHeader from "@/components/PageHeader";
 import Reveal from "@/components/Reveal";
+import CtaSection from "@/components/CtaSection";
 import { blogPosts, featuredPost } from "@/data/blog";
 
 const SITE = "https://redoyrowshon.vercel.app";
@@ -86,6 +87,8 @@ export default function BlogPage() {
           </div>
         </div>
       </section>
+
+      <CtaSection />
     </PageShell>
   );
 }

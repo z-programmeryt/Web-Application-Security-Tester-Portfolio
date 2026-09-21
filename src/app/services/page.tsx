@@ -1,11 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Shield, Target, Wifi, ScanSearch, Braces, GraduationCap, Check, ShieldCheck, ArrowRight, type LucideIcon } from "lucide-react";
+import Script from "next/script";
+import { Shield, Target, Wifi, ScanSearch, Braces, GraduationCap, Check, ShieldCheck, ArrowRight, Rocket, Crosshair, Users, Zap, type LucideIcon } from "lucide-react";
 import PageShell from "@/components/PageShell";
 import PageHeader from "@/components/PageHeader";
 import Reveal from "@/components/Reveal";
 import SectionHeading from "@/components/SectionHeading";
+import FaqSection from "@/components/FaqSection";
 import { services, processSteps, ethicsNote } from "@/data/services";
+import { faqs } from "@/data/faq";
 
 const SITE = "https://redoyrowshon.vercel.app";
 
@@ -31,9 +34,62 @@ const iconMap: Record<string, LucideIcon> = {
   graduation: GraduationCap,
 };
 
+const engagementOptions = [
+  {
+    icon: Rocket,
+    name: "Single Audit",
+    target: "Best for pre-launch checks and investor-ready software",
+    points: [
+      "Focused web app / API / infrastructure review",
+      "OWASP Top 10 coverage with validated findings",
+      "Prioritized report + reproducible PoCs",
+      "One remediation roadmap + retest window",
+    ],
+    timeline: "1–2 weeks",
+    featured: false,
+  },
+  {
+    icon: Crosshair,
+    name: "Full Penetration Test",
+    target: "Best for production apps and compliance-driven teams",
+    points: [
+      "Web + API + network + optional wireless scope",
+      "Manual-driven exploitation, not scan dumps",
+      "Chained attacks validated to real business impact",
+      "Executive summary + technical annex + retest",
+    ],
+    timeline: "2–4 weeks",
+    featured: true,
+  },
+  {
+    icon: Users,
+    name: "Retainer & Team Support",
+    target: "Best for teams that keep shipping",
+    points: [
+      "Continuous scanning and change-validation",
+      "Retesting on every release cycle",
+      "Custom security tooling and automation",
+      "Security training and mentoring for the team",
+    ],
+    timeline: "Ongoing",
+    featured: false,
+  },
+];
+
+const faqStructured = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.question,
+    acceptedAnswer: { "@type": "Answer", text: f.answer },
+  })),
+};
+
 export default function ServicesPage() {
   return (
     <PageShell>
+      <Script id="services-faq-structured-data" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqStructured) }} />
       <PageHeader
         crumb="Services"
         eyebrow="What I can do for you"
@@ -117,6 +173,51 @@ export default function ServicesPage() {
         </div>
       </section>
 
+      {/* Engagement options */}
+      <section className="section-padding pt-2">
+        <div className="max-w-7xl mx-auto">
+          <SectionHeading
+            eyebrow="Engagement options"
+            title={<>Ways to <span className="text-gradient">work together</span></>}
+            subtitle="Three common starting points — every engagement is scoped to your actual attack surface."
+          />
+          <div className="grid md:grid-cols-3 gap-5 items-stretch">
+            {engagementOptions.map((opt, i) => (
+              <Reveal key={opt.name} delay={i * 0.1} className={opt.featured ? "md:-mt-4 md:-mb-4 relative z-10" : undefined}>
+                <div className={`glass-card gradient-border glow-hover h-full p-7 flex flex-col ${opt.featured ? "border-electric-500/25" : ""}`}>
+                  {opt.featured && (
+                    <span className="absolute -top-3 left-6 px-2.5 py-0.5 rounded-full bg-gradient-to-r from-electric-500 to-cyan-accent text-[10px] font-bold text-white uppercase tracking-wider">
+                      Most thorough
+                    </span>
+                  )}
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-electric-500/15 to-cyan-accent/10 border border-electric-500/20 flex items-center justify-center mb-5">
+                    <opt.icon className="w-5 h-5 text-electric-400" />
+                  </div>
+                  <h3 className="text-lg font-bold text-text-primary mb-1">{opt.name}</h3>
+                  <p className="text-xs text-text-muted mb-4">{opt.target}</p>
+                  <ul className="space-y-2.5 mb-6 flex-1">
+                    {opt.points.map((p) => (
+                      <li key={p} className="flex items-start gap-2 text-[13px] text-text-secondary">
+                        <Check className="w-3.5 h-3.5 text-emerald-400 mt-0.5 shrink-0" />
+                        {p}
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="flex items-center justify-between pt-4 border-t border-border-subtle">
+                    <span className="inline-flex items-center gap-1.5 text-xs font-mono text-text-muted">
+                      <Zap className="w-3.5 h-3.5 text-electric-400" /> {opt.timeline}
+                    </span>
+                    <Link href="/contact" className="inline-flex items-center gap-1.5 text-sm font-semibold text-electric-400 hover:text-electric-300 transition-colors">
+                      Get a quote <ArrowRight className="w-4 h-4" />
+                    </Link>
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Ethics */}
       <section className="section-padding pt-2">
         <div className="max-w-4xl mx-auto">
@@ -129,6 +230,18 @@ export default function ServicesPage() {
               <p className="text-sm text-text-secondary leading-relaxed max-w-2xl mx-auto">{ethicsNote}</p>
             </div>
           </Reveal>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="section-padding pt-2">
+        <div className="max-w-7xl mx-auto">
+          <FaqSection
+            items={faqs}
+            eyebrow="FAQ"
+            title={<>Answers before you <span className="text-gradient">commit</span></>}
+            subtitle="The questions clients ask most — scope, process, deliverables, and confidentiality."
+          />
         </div>
       </section>
 
