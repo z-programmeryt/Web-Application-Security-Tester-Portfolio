@@ -91,7 +91,7 @@ export default function Header() {
                 </a>
               ))}
               <a
-                href="https://wa.me/8801991642605"
+                href="https://wa.me/8801865342789"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="magnetic-btn ml-1 inline-flex items-center gap-1.5 px-3 py-2 text-sm font-medium rounded-lg border border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/10 transition-all duration-300"
@@ -133,7 +133,7 @@ export default function Header() {
             <div className="flex items-center gap-3 mt-6 animate-fade-in" style={{ animationDelay: "500ms" }}>
               <a href="https://github.com/redoyrowshon-dotcom" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="p-3 text-text-muted hover:text-text-primary glass-card !rounded-xl"><Github className="w-5 h-5" /></a>
               <a href="https://www.linkedin.com/in/m-redoy-rowshon-2a0406424/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="p-3 text-text-muted hover:text-text-primary glass-card !rounded-xl"><Linkedin className="w-5 h-5" /></a>
-              <a href="https://wa.me/8801991642605" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="p-3 text-emerald-400 hover:text-emerald-300 glass-card !rounded-xl"><MessageCircle className="w-5 h-5" /></a>
+              <a href="https://wa.me/8801865342789" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="p-3 text-emerald-400 hover:text-emerald-300 glass-card !rounded-xl"><MessageCircle className="w-5 h-5" /></a>
             </div>
           </div>
         </div>

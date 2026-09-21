@@ -32,7 +32,7 @@ export default function Footer() {
                 { href: "https://github.com/redoyrowshon-dotcom", Icon: Github, label: "GitHub" },
                 { href: "https://www.linkedin.com/in/m-redoy-rowshon-2a0406424/", Icon: Linkedin, label: "LinkedIn" },
                 { href: `mailto:${profile.email}`, Icon: Mail, label: "Email" },
-                { href: "https://wa.me/8801991642605", Icon: MessageCircle, label: "WhatsApp", external: true },
+                { href: "https://wa.me/8801865342789", Icon: MessageCircle, label: "WhatsApp", external: true },
               ].map(({ href, Icon, label }) => (
                 <a key={label} href={href} target={Icon === Mail ? undefined : "_blank"} rel={Icon === Mail ? undefined : "noopener noreferrer"} className="p-2.5 text-text-muted hover:text-text-primary glass-card !rounded-lg hover:scale-110 transition-all duration-300" aria-label={label}>
                   <Icon className="w-4 h-4" />
@@ -90,15 +90,13 @@ export default function Footer() {
 
         {/* Bottom */}
         <div className="mt-12 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-border-subtle">
-          <div className="flex items-center gap-4 text-xs text-text-muted">
+            <div className="flex items-center gap-4 text-xs text-text-muted">
             <p>© {year} {profile.displayName}. All rights reserved.</p>
-            <span className="hidden sm:inline">·</span>
-            <span className="hidden sm:inline">Made by Mr. Manab</span>
           </div>
           <div className="flex items-center gap-4">
             <Link href="/privacy" className="text-xs text-text-muted hover:text-electric-300 transition-colors">Privacy</Link>
             <Link href="/terms" className="text-xs text-text-muted hover:text-electric-300 transition-colors">Terms</Link>
-            <a href="https://wa.me/8801991642605" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-xs text-emerald-400 hover:text-emerald-300 transition-colors">
+            <a href="https://wa.me/8801865342789" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-xs text-emerald-400 hover:text-emerald-300 transition-colors">
               <MessageCircle className="w-3 h-3" /> WhatsApp
             </a>
           </div>
