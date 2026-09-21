@@ -62,7 +62,7 @@ export const projects: Project[] = [
     topics: ["cybersecurity", "penetration-testing", "wpa", "wpa2", "wifi-hacking"],
     stats: { stars: 4, forks: 2 },
     featured: true,
-    updatedAt: "July 2026",
+    updatedAt: "September 2026",
     requirements: [
       "Kali Linux (recommended) or any Linux distro",
       "WiFi adapter with monitor mode support",
