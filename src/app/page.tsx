@@ -22,24 +22,24 @@ const structuredData = {
   "@graph": [
     {
       "@type": "Person",
-      "@id": "https://redoyrowshon.com/#person",
+      "@id": "https://redoyrowshon.vercel.app/#person",
       name: profile.displayName,
       alternateName: profile.nickname,
       jobTitle: profile.title,
       description: profile.tagline,
       email: profile.email,
-      url: "https://redoyrowshon.com",
+      url: "https://redoyrowshon.vercel.app",
       sameAs: ["https://github.com/redoyrowshon-dotcom", "https://www.linkedin.com/in/m-redoy-rowshon-2a0406424/"],
       knowsAbout: ["Penetration Testing", "Web Application Security", "Python", "C Programming", "Kali Linux", "Ethical Hacking", "WiFi Security", "OSINT"],
     },
     {
       "@type": "WebSite",
-      "@id": "https://redoyrowshon.com/#website",
-      url: "https://redoyrowshon.com",
+      "@id": "https://redoyrowshon.vercel.app/#website",
+      url: "https://redoyrowshon.vercel.app",
       name: `${profile.displayName} Portfolio`,
-      publisher: { "@id": "https://redoyrowshon.com/#person" },
+      publisher: { "@id": "https://redoyrowshon.vercel.app/#person" },
     },
-    { "@type": "ProfilePage", "@id": "https://redoyrowshon.com/#profilepage", mainEntity: { "@id": "https://redoyrowshon.com/#person" }, url: "https://redoyrowshon.com" },
+    { "@type": "ProfilePage", "@id": "https://redoyrowshon.vercel.app/#profilepage", mainEntity: { "@id": "https://redoyrowshon.vercel.app/#person" }, url: "https://redoyrowshon.vercel.app" },
   ],
 };
 

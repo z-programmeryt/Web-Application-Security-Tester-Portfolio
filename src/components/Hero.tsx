@@ -116,6 +116,9 @@ export default function Hero() {
                   fallbackSrc="/fallback-avatar.png"
                   alt={`${profile.displayName} — ${profile.title}`}
                   className="w-full h-full object-cover scale-110"
+                  loading="eager"
+                  fetchPriority="high"
+                  decoding="sync"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-navy-950/50 via-transparent to-transparent" />
               </div>

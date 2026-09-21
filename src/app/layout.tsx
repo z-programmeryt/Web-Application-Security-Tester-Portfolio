@@ -5,7 +5,7 @@ import NetworkCanvas from "@/components/NetworkCanvas";
 import { ThemeProvider } from "@/components/ThemeProvider";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://redoyrowshon.com"),
+  metadataBase: new URL("https://redoyrowshon.vercel.app"),
   title: { default: `${profile.displayName} — ${profile.title}`, template: `%s | ${profile.displayName}` },
   description: profile.tagline,
   keywords: ["penetration tester", "web application security", "cybersecurity", "ethical hacker", "Kali Linux", "Python security", "WiFi security", "M. Redoy Rowshon"],
@@ -17,13 +17,24 @@ export const metadata: Metadata = {
     type: "profile",
     title: `${profile.displayName} — ${profile.title}`,
     description: profile.tagline,
-    url: "https://redoyrowshon.com",
+    url: "https://redoyrowshon.vercel.app",
     siteName: `${profile.displayName} Portfolio`,
     locale: "en_US",
     images: [{ url: "/og-image.png", width: 1200, height: 630, alt: `${profile.displayName} — Penetration Tester` }],
   },
   twitter: { card: "summary_large_image", title: `${profile.displayName} — ${profile.title}`, description: profile.tagline, images: ["/og-image.png"] },
-  alternates: { canonical: "https://redoyrowshon.com" },
+  alternates: { canonical: "https://redoyrowshon.vercel.app" },
+  formatDetection: { telephone: false },
+  icons: {
+    icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
+    shortcut: "/favicon.svg",
+    apple: [{ url: "/icon-192.png", sizes: "192x192", type: "image/png" }],
+  },
+  appleWebApp: {
+    capable: true,
+    title: "Redoy",
+    statusBarStyle: "black-translucent",
+  },
 };
 
 export const viewport: Viewport = {
@@ -42,7 +53,6 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <head>
         <link rel="manifest" href="/manifest.json" />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-        <link rel="apple-touch-icon" href="/icon-192.png" />
       </head>
       <body className="bg-navy-950 text-text-primary antialiased noise-overlay">
         <ThemeProvider>

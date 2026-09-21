@@ -1,29 +1,58 @@
-# M. Redoy Rowshon — Cybersecurity Portfolio
+# M. Redoy Rowshon — Web Application Security Tester Portfolio
 
-A premium, production-quality personal portfolio for **M. Redoy Rowshon** (Redoy) — Penetration Tester & Web Application Security Tester.
+A premium, production-quality portfolio for **M. Redoy Rowshon** (aka Redoy) — Penetration Tester & Web Application Security Tester. Built as a single-page Next.js application with a glass-morphism cyber-security design system, full PWA support, and deployment on **Vercel**.
 
-![Next.js](https://img.shields.io/badge/Next.js-16-black)
-![TypeScript](https://img.shields.io/badge/TypeScript-5-blue)
-![Tailwind](https://img.shields.io/badge/Tailwind-4-38bdf8)
-![License](https://img.shields.io/badge/License-All%20Rights%20Reserved-red)
+![Next.js](https://img.shields.io/badge/Next.js-16-black) ![TypeScript](https://img.shields.io/badge/TypeScript-5.9-blue) ![Tailwind](https://img.shields.io/badge/Tailwind-4-38bdf8) ![React](https://img.shields.io/badge/React-19-61dafb) ![Deployment](https://img.shields.io/badge/Deployment-Vercel-000) ![License](https://img.shields.io/badge/License-All%20Rights%20Reserved-red)
+
+> 🌐 **Live**: [redoyrowshon.vercel.app](https://redoyrowshon.vercel.app) — connected to Vercel (auto-deploy on push to `main`).
 
 ---
 
-## ✨ Features
+## 🎯 Vision & Goal
 
-- **🌓 Dark / Light Mode** — Theme toggle with smooth transitions, persisted preference
-- **🎨 3D Glass Morphism** — Premium frosted-glass cards with holographic shine effects
-- **🌐 Interactive Network Canvas** — Mouse-reactive particle network background
-- **⌨️ Typing Animation** — Cycles through professional titles with realistic speed
-- **📐 3D Tilt Cards** — Perspective-based tilt on project cards via mouse tracking
-- **📱 Mobile Bottom Nav** — App-like navigation with active state tracking + safe area insets
-- **⏱️ Security Journey Timeline** — Visual path from foundation to active research
-- **📊 GitHub Activity** — Language distribution, real stats, repo overview
-- **🔐 Offline Support** — PWA with Service Worker, offline fallback, network status indicator
-- **🎥 Video Architecture** — Future-ready scroll-driven video component (placeholder)
-- **♿ WCAG 2.2 AA** — Semantic HTML, keyboard nav, reduced motion, screen reader support
-- **🔍 Full SEO** — Open Graph, Twitter Cards, Schema.org structured data, sitemap
-- **🛡️ Security Headers** — HSTS, X-Frame-Options, CSP-ready, Referrer-Policy, Permissions-Policy
+The portfolio's goal is to present **Redoy's real, verifiable cybersecurity work** — not a list of inflated claims:
+
+- Showcase **evidence-based projects** (original code, released tools, and clearly attributed forks).
+- Emphasize the **core skill set**: penetration testing, web application security, Linux/Kali operations, and security tooling in Python & C.
+- Build a **fast, accessible, PWA-grade site** with strong SEO and security headers.
+- Stay **honest**: no fabricated certifications, clients, or statistics.
+
+Every number on the site is cross-checked against live GitHub data.
+
+---
+
+## ✨ Features (এখন যা আছে — What exists today)
+
+### Visual & UI/UX
+- 🌓 **Dark / Light mode** — theme toggle with smooth transitions and persisted preference
+- 🎨 **Glass morphism design system** — frosted-glass cards, spotlight hover, holographic shine
+- 🌐 **Interactive network canvas** — mouse-reactive particle background (theme aware)
+- ⌨️ **Typing animation** — cycles professional titles with realistic typing speed
+- 📐 **3D tilt cards** — perspective tilt on project cards via mouse tracking
+- 📱 **Mobile bottom nav** — app-like navigation with active state + safe-area insets
+- ⏱️ **Security Journey timeline** — visual path from programming foundation to security research
+- 📊 **GitHub Activity** — verified stats: language distribution, repos, stars, forks
+- 🎥 **Video-ready architecture** — scroll-driven `VideoBackground` component (placeholder, ready for content)
+
+### Engineering & Quality
+- 🔐 **Offline support (PWA)** — Service Worker, offline fallback page, online/offline indicator, Web App Manifest, installable icons
+- ♿ **WCAG 2.2 AA** — semantic HTML, keyboard nav, focus states, ARIA labels, reduced-motion support
+- 🔍 **Full SEO** — Open Graph, Twitter Cards, Schema.org structured data, sitemap, robots
+- 🛡️ **Security headers** — HSTS, X-Frame-Options, nosniff, Referrer-Policy, Permissions-Policy
+- ⚡ **Performance** — static prerendering, lazy-loaded imagery, eager loading for the hero (LCP), no unused framework weight
+- 🛠️ **Zero secrets** — no API keys/tokens/credentials anywhere in source
+
+### Content & Data Integrity
+| Project | Type | Evidence |
+|---------|------|---------|
+| **WiFi RainbowBuffer** | ✅ Original | Authored by Redoy (Python), 4★ / 2 forks, live repo |
+| **Shadowbroker** | ⚠️ Fork | `BigBodyCobain/Shadowbroker` — attributed |
+| **World Monitor** | ⚠️ Fork | `koala73/worldmonitor` — attributed |
+| **AhMyth** | ⚠️ Fork | `Morsmalleo/AhMyth` — attributed |
+
+No fabricated experience, certifications, clients, or statistics.
+
+---
 
 ## 🛠️ Tech Stack
 
@@ -31,191 +60,192 @@ A premium, production-quality personal portfolio for **M. Redoy Rowshon** (Redoy
 |-------|-----------|
 | Framework | Next.js 16 (App Router, Turbopack) |
 | Language | TypeScript (strict) |
-| Styling | Tailwind CSS 4 |
+| Styling | Tailwind CSS 4 (CSS-first config) |
 | Theme | next-themes (class strategy) |
 | Icons | Lucide React + custom SVG brand icons |
-| Animation | CSS keyframes + spring physics |
-| Canvas | Vanilla Canvas API (particle network) |
-| PWA | Service Worker + Web App Manifest |
-| Fonts | System font stack (Inter fallback) |
+| Animation | CSS keyframes + spring physics + Canvas |
+| PWA | Service Worker + Web App Manifest + app icons |
+| Hosting | Vercel (auto-deploy from `main`) |
+
+---
 
 ## 🚀 Getting Started
 
 ```bash
-# Install dependencies
+# 1. Install dependencies
 npm install
 
-# Development server (http://localhost:3000)
+# 2. Development server (http://localhost:3000)
 npm run dev
 
-# Production build
+# 3. Production build
 npm run build
 
-# Start production server
+# 4. Start production server
 npm start
 
-# Type checking
+# 5. Quality checks
 npm run typecheck
-
-# Linting
 npm run lint
 ```
+
+---
 
 ## 📁 Project Structure
 
 ```
 src/
 ├── app/
-│   ├── globals.css           # Theme system, animations, glass effects
-│   ├── layout.tsx            # Root layout, metadata, ThemeProvider
-│   └── page.tsx              # Home page composition
+│   ├── globals.css           # Theme tokens, glass system, animations
+│   ├── layout.tsx            # Root layout, SEO/PWA metadata, ThemeProvider
+│   ├── page.tsx              # Home page composition + JSON-LD
+│   └── not-found.tsx         # Custom styled 404 page
 ├── components/
-│   ├── icons/BrandIcons.tsx  # GitHub & LinkedIn SVG icons
-│   ├── Header.tsx            # Sticky nav with glass blur + theme toggle
-│   ├── Hero.tsx              # Hero with typing, orbital rings, glass badges
-│   ├── About.tsx             # Bio + terminal snippet + highlight grid
-│   ├── Expertise.tsx         # 4 glass expertise cards
-│   ├── Skills.tsx            # Technical skills with icons
-│   ├── SecurityFocus.tsx     # 6 color-coded focus area cards
+│   ├── icons/                # BrandIcons (GitHub/LinkedIn) + TechIcons (brand SVGs)
+│   ├── Header.tsx            # Sticky glass nav + mobile menu
+│   ├── Hero.tsx              # Typing text, orbital rings, glass badges
+│   ├── About.tsx             # Bento bio grid + terminal snippet
+│   ├── Expertise.tsx         # 4 expertise glass cards
+│   ├── Skills.tsx            # Tech skills with icons
+│   ├── SecurityFocus.tsx     # 6 color-coded focus cards
 │   ├── SecurityJourney.tsx   # Animated timeline
 │   ├── Projects.tsx          # 3D tilt cards + detail modal
-│   ├── GitHubActivity.tsx    # Language chart + repo stats
-│   ├── Contact.tsx           # Glass contact card
-│   ├── Footer.tsx            # Site footer with logo
-│   ├── MobileBottomNav.tsx   # Mobile tab bar (safe-area)
-│   ├── BackToTop.tsx         # Floating scroll-to-top
-│   ├── ScrollProgress.tsx    # Top progress bar
-│   ├── NetworkCanvas.tsx     # Theme-aware particle background
-│   ├── OfflineIndicator.tsx  # Online/offline status toast
-│   ├── VideoBackground.tsx   # Future scroll-driven video component
-│   ├── TerminalSnippet.tsx   # macOS-style terminal display
-│   ├── TypingText.tsx        # Typing animation component
-│   ├── ThemeProvider.tsx     # next-themes wrapper
-│   ├── ThemeToggle.tsx       # Sun/Moon toggle button
-│   ├── SafeImage.tsx         # img with automatic error fallback
+│   ├── GitHubActivity.tsx    # Verified language chart + stats
+│   ├── Contact.tsx           # Glass contact card (copy-email + links)
+│   ├── Footer.tsx / MobileBottomNav.tsx / BackToTop.tsx / ScrollProgress.tsx
+│   ├── NetworkCanvas.tsx / OfflineIndicator.tsx / VideoBackground.tsx
+│   ├── TerminalSnippet.tsx / TypingText.tsx / AnimatedCounter.tsx
+│   ├── ThemeProvider.tsx / ThemeToggle.tsx / SafeImage.tsx
 │   └── ServiceWorkerRegistrar.tsx
 ├── data/
 │   ├── profile.ts            # Profile, social links, navigation
-│   ├── skills.ts             # Skills categories & expertise areas
-│   └── projects.ts           # Project data with ownership attribution
+│   ├── skills.ts             # Skill categories + expertise areas
+│   └── projects.ts           # Projects with ownership attribution
 ├── hooks/
-│   ├── useScrollSpy.ts       # Scroll spy, reduced motion, IntersectionObserver
-│   └── useTilt.ts            # 3D perspective tilt on mouse move
+│   ├── useScrollSpy.ts       # Scroll spy + useInView + reduced motion
+│   ├── useTilt.ts            # 3D perspective tilt
+│   └── useSpotlight.ts       # Mouse-tracked card spotlight
 └── lib/
-    └── utils.ts              # URL sanitization, className helpers
+    └── utils.ts              # URL sanitization + class helpers
 
 public/
-├── logo.png                  # Portfolio logo
-├── favicon.svg               # SVG favicon
-├── icon-192.png / icon-512.png  # PWA icons
-├── fallback-avatar.png       # Avatar fallback
-├── og-image.png              # Open Graph preview (1200×630)
-├── manifest.json             # PWA manifest
-├── sw.js                     # Service Worker (network-first + cache)
-├── offline.html              # Offline fallback page
-├── robots.txt                # SEO robots
-└── sitemap.xml               # SEO sitemap
+├── icon-192.png / icon-512.png  # PWA app icons
+├── og-image.png                 # Open Graph preview (1200×630)
+├── logo.png / favicon.svg       # Branding
+├── fallback-avatar.png          # Avatar fallback
+├── manifest.json / sw.js        # PWA manifest + service worker
+├── offline.html                 # Offline fallback page
+└── robots.txt / sitemap.xml     # SEO
 ```
+
+---
 
 ## 🎨 Design System
 
-### Colors (CSS Variables, theme-aware)
+### Color tokens (theme-aware CSS variables)
 
 | Token | Dark | Light |
 |-------|------|-------|
-| `--color-navy-950` (bg) | `#040a18` | `#f8fafc` |
-| `--color-surface` | `#0d1b2a` | `#ffffff` |
-| `--color-text-primary` | `#e2e8f0` | `#0f172a` |
-| `--color-electric-500` | `#3b82f6` | `#2563eb` |
-| `--color-cyan-accent` | `#22d3ee` | `#0891b2` |
+| Background (`--bg`) | `#030712` | `#f8fafc` |
+| Surface (`--color-surface`) | `#0c1525` | `#ffffff` |
+| Text primary | `#f1f5f9` | `#0f172a` |
+| Electric accent | `#3b82f6` | `#2563eb` |
+| Cyan accent | `#22d3ee` | `#0891b2` |
 
-### Animations
+### Motion
+`slideUp` / `slideLeft` / `slideRight` (spring-like bezier), `scaleIn`, `float`, `shimmer`, `orbit`, `holoRotate`-style glows, `counter` (animated stats). All respect `prefers-reduced-motion`.
 
-- `slideUp` / `slideLeft` / `slideRight` — Spring-physics entrance (cubic-bezier)
-- `scaleIn` — Pop-in for modals and cards
-- `float` / `float-delayed` — Gentle vertical oscillation
-- `shimmer` — Gradient text background-position animation
-- `orbit` — 20s linear rotation for avatar rings
-- `holoRotate` — Conic gradient holographic shine on hover
-- `glow` — Pulsing box-shadow for accent elements
-
-All animations respect `prefers-reduced-motion`.
+---
 
 ## 🔐 Security Practices
 
 | Practice | Implementation |
 |----------|---------------|
 | HSTS | `max-age=63072000; includeSubDomains; preload` |
-| Frame Protection | `X-Frame-Options: SAMEORIGIN` |
-| XSS Protection | `X-XSS-Protection: 1; mode=block` |
-| Content Type | `X-Content-Type-Options: nosniff` |
-| Referrer | `strict-origin-when-cross-origin` |
-| Permissions | Camera, microphone, geolocation disabled |
-| External Links | All `target="_blank"` with `rel="noopener noreferrer"` |
-| No Secrets | Zero API keys, tokens, or credentials in source |
-| URL Sanitization | Safe URL handling in `lib/utils.ts` |
-| No `eval` | Zero eval/innerHTML usage |
-| Safe HTML | `dangerouslySetInnerHTML` only for JSON-LD (own data) |
+| Frame protection | `X-Frame-Options: SAMEORIGIN` |
+| Content type | `X-Content-Type-Options: nosniff` |
+| Referrer policy | `strict-origin-when-cross-origin` |
+| Permissions policy | Camera, microphone, geolocation disabled |
+| External links | `target="_blank"` + `rel="noopener noreferrer"` |
+| Secrets | Zero API keys / tokens / credentials in source |
+| URL handling | Sanitization helpers in `lib/utils.ts` |
+| No `eval` | Zero `eval` / `innerHTML`; JSON-LD via own data only |
+
+---
 
 ## ♿ Accessibility
 
-- Semantic HTML (`<main>`, `<header>`, `<footer>`, `<nav>`, `<article>`, `<section>`)
-- ARIA labels on all interactive elements
-- `aria-current="page"` on active navigation
-- `aria-live="polite"` on offline indicator
-- `aria-pressed` on theme toggle
-- `role="progressbar"` on scroll progress
-- `role="dialog"` + `aria-modal` on project modal
-- Visible `:focus-visible` states
-- Escape key closes modal and mobile menu
-- `prefers-reduced-motion` fully respected
-- Color contrast tested for both themes
+Semantic landmarks, ARIA labels, `aria-expanded`/`aria-pressed`/`aria-modal`, `role="dialog"`, `role="progressbar"`, visible `:focus-visible`, Escape-key handling, reduced-motion support, and contrast-checked palettes for both themes.
+
+---
 
 ## 📱 Responsive Breakpoints
 
-| Breakpoint | Layout |
-|-----------|--------|
+| Range | Layout |
+|-------|--------|
 | 320–639px | Single column, bottom nav, compact hero |
-| 640–767px | Two-column skill grid, bottom nav |
-| 768–1023px | Desktop nav, two-column projects |
-| 1024–1279px | Full layout, two-column hero |
+| 640–767px | Two-column grids, bottom nav |
+| 768–1279px | Desktop nav, two-column projects |
 | 1280px+ | Max-width container, spacious layout |
 
-Safe-area-inset support for iPhone notch/home indicator.
+Safe-area-inset support for iPhone notch / home indicator.
 
-## 📊 Content Integrity
+---
 
-All portfolio content is evidence-based:
+## 🗺️ Roadmap (যা এখন নেই — What's next)
 
-| Project | Type | Evidence |
-|---------|------|---------|
-| **WiFi RainbowBuffer** | ✅ Original | Created by Redoy (commit history, 4★, 2 forks) |
-| **Shadowbroker** | ⚠️ Fork | BigBodyCobain/Shadowbroker — attributed |
-| **World Monitor** | ⚠️ Fork | koala73/worldmonitor — attributed |
-| **AhMyth** | ⚠️ Fork | Morsmalleo/AhMyth — attributed |
+Planned improvements, ordered by priority:
 
-No fabricated experience, certifications, clients, or statistics.
+| Priority | Item | Status |
+|----------|------|--------|
+| P0 | PWA app icons (`icon-192/512`) shipped | ✅ Done |
+| P0 | Canonical domain updated to `redoyrowshon.vercel.app` | ✅ Done |
+| P0 | OG image corrected to 1200×630 | ✅ Done |
+| P1 | Contact form with client-side validation + spam-safe `mailto:` fallback | 🔜 Planned |
+| P1 | Live GitHub stats via a scheduled revalidation / ISR API route | 🔜 Planned |
+| P1 | Add a `resume` page or downloadable CV (privacy-safe) | 🔜 Planned |
+| P2 | Multi-language support (EN / BN) | 🔜 Planned |
+| P2 | Blog / write-ups section for security research notes | 🔜 Planned |
+| P2 | Scroll-driven hero video content (component already built) | 🔜 Planned |
+| P3 | Blogging, stats endpoint caching, RSS feed | 🧠 Idea |
+| P3 | Custom domain (`redoyrowshon.com`) once DNS is configured | 🧠 Idea |
 
-## 🎥 Future Video Architecture
+---
 
-The `VideoBackground` component is ready for scroll-driven video integration:
+## ☁️ Deployment (Vercel)
 
-```tsx
-<VideoBackground
-  src="/video/cybersecurity-narrative.mp4"
-  poster="/images/video-poster.jpg"
-  scrollRange={[0.2, 0.8]}
->
-  {/* Content overlay */}
-</VideoBackground>
+The site is connected to **Vercel** and auto-deploys from the `main` branch:
+
+1. Push to `main` → Vercel builds (`npm run build`) → deploys production.
+2. Preview deployments are generated for pull requests.
+3. All development happens on **feature branches** and is merged into `main` only after typecheck/lint/build pass.
+
+Configuration lives in `next.config.ts` (security headers + image remote patterns). No platform-specific build config is required.
+
+---
+
+## 🧭 Branch Strategy
+
+```
+main  ───────────main───────────────────────────── ► deploy (Vercel production)
+        \                     /
+         \__ improvements __/   ← development branch (work, verify, merge)
 ```
 
-Features: IntersectionObserver lazy loading, scroll-to-timecode mapping, mobile poster fallback, reduced motion support.
+Rules:
+- Never commit directly to `main`.
+- Work on a feature branch (e.g. `improvements`).
+- Verify with `npm run typecheck && npm run lint && npm run build`.
+- Merge into `main` (stable `--no-ff` merge) and push.
+
+---
 
 ## 📄 License
 
 Portfolio code © 2026 M. Redoy Rowshon. All rights reserved.
 
+Forked/attributed projects retain their original licenses (AGPL-3.0, MIT, GPL-3.0).
+
 ---
 
-Built with ❤️ and Next.js — Secured by design.
+Built with ❤️ and Next.js — Secured by design. Verified against live GitHub data.

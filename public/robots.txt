@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://redoyrowshon.com/sitemap.xml
+Sitemap: https://redoyrowshon.vercel.app/sitemap.xml
