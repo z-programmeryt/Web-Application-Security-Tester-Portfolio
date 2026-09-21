@@ -6,7 +6,7 @@ export function useTilt(maxTilt = 5) {
   const ref = useRef<HTMLDivElement>(null);
 
   const handleMouseMove = useCallback(
-    (e: React.MouseEvent<HTMLDivElement>) => {
+    (e: React.MouseEvent<HTMLElement>) => {
       const el = ref.current;
       if (!el) return;
       const rect = el.getBoundingClientRect();
